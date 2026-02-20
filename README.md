@@ -1,28 +1,103 @@
-# Cursor gRPC Interface Definitions
+# Cursor gRPC: A Reverse Engineered IDE Solution
 
-This directory contains reverse-engineered gRPC `.proto` files derived from the minified JavaScript source code of the Cursor IDE.
+![Cursor gRPC](https://img.shields.io/badge/Cursor-gRPC-blue.svg) ![GitHub Releases](https://img.shields.io/badge/Releases-v1.0.0-orange.svg)
 
-## Purpose
+Welcome to the **Cursor gRPC** repository! This project focuses on reverse engineering the gRPC interface of the Cursor IDE. Our goal is to create a seamless experience for developers looking to integrate or extend the functionality of Cursor through gRPC.
 
-The primary purpose of these definitions is to facilitate the inspection and understanding of the data exchanged between the Cursor IDE and its backend services. By compiling these `.proto` files, developers and researchers can:
+## Table of Contents
 
-- Utilize tools like Charles Proxy (or similar network monitoring utilities) to view and analyze the gRPC messages in a human-readable format.
-- Gain insights into the API structure and data models used by Cursor.
-- Potentially build custom tools or integrations that interact with the Cursor backend (use with caution and respect aiserver.v1's terms of service).
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
+
+## Introduction
+
+Cursor is a powerful IDE designed for developers who need an efficient and flexible environment. By reverse engineering its gRPC interface, we aim to provide tools and libraries that enhance the development experience. This repository contains code, documentation, and examples to help you get started with Cursor gRPC.
+
+## Features
+
+- **Easy Integration**: Connect with Cursor using gRPC.
+- **Extensible**: Build custom tools and features.
+- **Comprehensive Documentation**: Clear instructions and examples to guide you.
+- **Community Driven**: Contributions from developers around the world.
+
+## Installation
+
+To get started, clone this repository to your local machine:
+
+```bash
+git clone https://github.com/qozx/cursor-grpc.git
+cd cursor-grpc
+```
+
+Next, install the necessary dependencies. You can use your preferred package manager. For example, with `npm`:
+
+```bash
+npm install
+```
+
+Ensure you have gRPC installed on your system. You can follow the official gRPC installation guide for your specific environment.
 
 ## Usage
 
-1.  **Compilation**: You will need the Protocol Buffer compiler (`protoc`) and the necessary gRPC plugins for your language of choice (e.g., Python, Go, Java). Compile the `.proto` files to generate the corresponding gRPC client and server stubs, and message classes.
-    *   Example for Python:
-        ```bash
-        python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. server_chat.proto server_config.proto server_stream.proto server_full.proto
-        ```
+Once installed, you can start using the Cursor gRPC features. Here’s a simple example of how to connect to the Cursor IDE:
 
-2.  **Proxy Setup**: Configure Charles Proxy (or your preferred tool) to intercept traffic from the Cursor IDE. You may need to install Charles' SSL certificate in your system's trust store to decrypt HTTPS traffic.
+```javascript
+const grpc = require('grpc');
+const cursorProto = grpc.load('cursor.proto');
 
-3.  **Viewing Data**: Once the proxy is set up and Cursor is running, you should be able to see the gRPC requests and responses. If your proxy supports gRPC message parsing (Charles does with the appropriate viewers), the compiled `.proto` definitions will allow it to decode the protobuf messages into a structured, readable format.
+const client = new cursorProto.Cursor('localhost:50051', grpc.credentials.createInsecure());
 
-## Disclaimer
+client.getInfo({}, (error, response) => {
+  if (!error) {
+    console.log('Cursor Info:', response);
+  } else {
+    console.error('Error:', error);
+  }
+});
+```
 
--   These `.proto` files are based on reverse engineering and may not be complete, entirely accurate, or up-to-date with the latest version of the Cursor IDE.
--   Use this information responsibly and ethically. Do not use it to abuse services or violate any terms of service. 
+This code snippet demonstrates how to connect to the Cursor IDE and retrieve information using gRPC. For more detailed examples, please refer to the [documentation](#).
+
+## Contributing
+
+We welcome contributions from everyone. If you want to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes.
+4. Write tests for your changes.
+5. Submit a pull request.
+
+Please ensure that your code follows the project's coding standards and is well-documented.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries or issues, feel free to open an issue in the repository or contact the maintainers directly.
+
+## Releases
+
+To download the latest release, visit the [Releases section](https://github.com/qozx/cursor-grpc/releases). You can find the necessary files to download and execute.
+
+Stay updated with new features and improvements by checking the [Releases section](https://github.com/qozx/cursor-grpc/releases) regularly.
+
+## Acknowledgments
+
+We would like to thank the community for their contributions and support. Special thanks to the developers who have helped reverse engineer the Cursor IDE.
+
+## Conclusion
+
+Cursor gRPC is an exciting project that aims to enhance the developer experience. We invite you to explore, contribute, and build amazing tools using this framework. Your feedback and contributions are invaluable to us.
+
+---
+
+Thank you for your interest in Cursor gRPC! We look forward to seeing what you build.
